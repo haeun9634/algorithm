@@ -1,24 +1,20 @@
 #include <string>
 #include <vector>
-#include <map>
+#include <unordered_map>
+
 using namespace std;
 
 string solution(vector<string> participant, vector<string> completion) {
     string answer = "";
-    map <string, int> p;
-    for(int i=0; i<participant.size(); i++){
-        p[participant[i]] += 1;
-    }
+    unordered_map <string,int> mp;
+    for(string name : participant) mp[name]++;
+    for(string name : completion) mp[name]--;
     
-    for(int i=0; i<completion.size(); i++){
-        p[completion[i]] -= 1;
+    for(string name : participant){
+        if(mp[name]!=0){
+            answer = name;
+            break;
+        }
     }
-    
-    for(int i=0; i<participant.size(); i++){
-       if( p[participant[i]]!=0){
-           answer = participant[i];
-       }
-    }
-    
     return answer;
 }
