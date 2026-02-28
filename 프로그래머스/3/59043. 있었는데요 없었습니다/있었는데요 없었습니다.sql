@@ -1,2 +1,1 @@
--- 코드를 입력하세요
-SELECT ai.animal_id, ai.name from animal_ins as ai left join animal_outs as ao on ai.animal_id = ao.animal_id where ai.datetime>ao.datetime order by ai.datetime
+select ao.animal_id, ao.name from animal_outs ao left join animal_ins ai on ai.animal_id = ao.animal_id where ai.datetime > ao.datetime order by ai.datetime
