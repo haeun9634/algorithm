@@ -1,6 +1,1 @@
-SELECT HOUR(datetime) AS HOUR,
-       COUNT(*) AS COUNT
-FROM animal_outs
-WHERE HOUR(datetime) BETWEEN 9 AND 19
-GROUP BY HOUR(datetime)
-ORDER BY HOUR;
+select HOUR(DATETIME) hour, count(*) from animal_outs group by Hour(DATETIME) having hour between 9 and 19 order by hour asc
